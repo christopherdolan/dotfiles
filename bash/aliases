@@ -37,3 +37,9 @@ alias h="history"
 
 # manage bash config
 alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"
+
+# manage git config
+alias vigit="vim $HOME/.gitconfig"
+
+# manage vim config
+alias vivim="vim -o $HOME/.vimrc $HOME/.gvimrc"
