@@ -38,4 +38,4 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PS1='$(vcprompt)${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
+PS1='[$(rvm-prompt s i v g)]${debian_chroot:+($debian_chroot)}$(vcprompt -f '[%n:%b%m%u]'): \w\$ '
