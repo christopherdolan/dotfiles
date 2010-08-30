@@ -1,4 +1,4 @@
-. ~/bin/dotfiles/bash/env
-. ~/bin/dotfiles/bash/config
-. ~/bin/dotfiles/bash/aliases
-. ~/bin/dotfiles/bash/colors
+. $HOME/bin/dotfiles/bash/env
+. $HOME/bin/dotfiles/bash/config
+. $HOME/bin/dotfiles/bash/aliases
+. $HOME/bin/dotfiles/bash/colors
