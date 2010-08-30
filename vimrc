@@ -1,4 +1,9 @@
-filetype on
+" Let pathogen suck in all the Vim plugins
+filetype off
+silent! call pathogen#runtime_append_all_bundles()
+syntax on
+filetype plugin indent on
+
 nnoremap <silent> <F8> :TlistToggle<CR>
 
 if has("autocmd")
@@ -6,17 +11,6 @@ if has("autocmd")
 endif
 
 let Tlist_Ctags_Cmd='/usr/bin/ctags'
-
-" An example for a vimrc file.
-"
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2008 Dec 17
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
 
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
@@ -65,12 +59,6 @@ endif
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
 
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  filetype plugin indent on
-
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
   au!
@@ -112,6 +100,7 @@ command! -nargs=* Wrap set wrap linebreak nolist
 
 colorscheme blackboard
 set wildmode=list:longest
+
 
 inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
