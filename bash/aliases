@@ -17,6 +17,7 @@ alias gco='git checkout'
 alias gd='git diff'
 
 # the linux equivalent of mac's "pbpaste" (useful for ypaste script)
+alias pbcopy='xsel --clipboard --input'
 alias pbpaste='xsel --clipboard --output'
 
 # easily clean all vim files from a directory structure
