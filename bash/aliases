@@ -34,3 +34,6 @@ alias cddf="cd $HOME/bin/dotfiles"
 
 # other command aliases
 alias h="history"
+
+# manage bash config
+alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"
