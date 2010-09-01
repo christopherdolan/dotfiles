@@ -3,6 +3,18 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
+# rvm aliases
+function gs() {
+	rvm gemset $*
+}
+function gsl() {
+	gs list $*
+}
+
+function gsu() {
+	gs use $*
+}
+
 # git aliases
 alias g='git status'
 alias gb='git branch'
@@ -15,6 +27,7 @@ function gg() {
 }
 alias gco='git checkout'
 alias gd='git diff'
+alias gl='git log --pretty=oneline'
 
 # the linux equivalent of mac's "pbpaste" (useful for ypaste script)
 alias pbcopy='xsel --clipboard --input'
