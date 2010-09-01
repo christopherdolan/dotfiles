@@ -4,16 +4,9 @@ alias la='ls -A'
 alias l='ls -CF'
 
 # rvm aliases
-function gs() {
-	rvm gemset $*
-}
-function gsl() {
-	gs list $*
-}
-
-function gsu() {
-	gs use $*
-}
+alias rgs='rvm gemset'
+#alias rgsl='gs list'
+#alias rgsu='gs use'
 
 # git aliases
 alias g='git status'
