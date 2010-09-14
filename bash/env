@@ -1,3 +1,5 @@
+export PATH=$PATH:/usr/lib/tpkg/client/bin
+
 export EDITOR=/usr/bin/vim
 export PATH=$HOME/bin:$PATH
 
