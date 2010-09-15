@@ -1,6 +1,7 @@
 " Let pathogen suck in all the Vim plugins
 filetype off
 silent! call pathogen#runtime_append_all_bundles()
+silent! call pathogen#helptags()
 syntax on
 filetype plugin indent on
 
