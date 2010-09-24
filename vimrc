@@ -115,3 +115,6 @@ function! s:align()
     call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
   endif
 endfunction
+
+" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
+map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
