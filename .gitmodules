@@ -58,3 +58,12 @@
 [submodule "vim/bundle/git-vim"]
 	path = vim/bundle/git-vim
 	url = git://github.com/motemen/git-vim.git
+[submodule "vim/bundle/vim-json"]
+	path = vim/bundle/vim-json
+	url = git://github.com/chrismetcalf/vim-json.git
+[submodule "vim/bundle/vim-matchit"]
+	path = vim/bundle/vim-matchit
+	url = git://github.com/tsaleh/vim-matchit.git
+[submodule "vim/bundle/checksyntax_vim"]
+	path = vim/bundle/checksyntax_vim
+	url = git://github.com/tomtom/checksyntax_vim.git
