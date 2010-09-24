@@ -67,3 +67,6 @@
 [submodule "vim/bundle/checksyntax_vim"]
 	path = vim/bundle/checksyntax_vim
 	url = git://github.com/tomtom/checksyntax_vim.git
+[submodule "vim/bundle/vim-bufexplorer"]
+	path = vim/bundle/vim-bufexplorer
+	url = git://github.com/edsono/vim-bufexplorer.git
