@@ -118,6 +118,12 @@
 
 " Key Mappings {
 
+	" Open BufExplorer in a new tab
+	map ,b :tabnew<CR>:BufExplorer<CR>
+
+	" Open the FuzzyFinderFile pane
+	map <leader>f :FufFile<CR>
+
 	" Easier moving in tabs and windows
 	map <C-J> <C-W>j<C-W>_
 	map <C-K> <C-W>k<C-W>_
@@ -126,6 +132,11 @@
 	map <C-K> <C-W>k<C-W>_
 	map <S-H> gT
 	map <S-L> gt
+
+	" ,v brings up my .vimrc
+	" ,V reloads it -- making all changes active (have to save first)
+	map ,v :tabe ~/.vimrc<CR><C-W>_
+	map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
 	" Stupid shift key fixes
 	cmap W w
