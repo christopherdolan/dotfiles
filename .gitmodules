@@ -76,3 +76,6 @@
 [submodule "vim/bundle/yankring"]
 	path = vim/bundle/yankring
 	url = git://github.com/vim-scripts/YankRing.vim.git
+[submodule "vim/bundle/repeat"]
+	path = vim/bundle/repeat
+	url = git://github.com/tpope/vim-repeat.git
