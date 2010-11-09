@@ -52,3 +52,6 @@ alias vivim="vim -o $HOME/.vimrc $HOME/.gvimrc"
 
 # open graphical vim to current folder
 alias gv="vim -g . -c 'cd `pwd`'"
+
+#use $PAGER instead of less
+alias less=$PAGER
