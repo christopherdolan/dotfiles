@@ -179,7 +179,7 @@
 	" }
 
 	" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
-	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>:set filetype=json<CR>
 " }
 
 " Convenient command to see the difference between the current buffer and the
