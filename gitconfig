@@ -1,10 +1,11 @@
 [user]
-	name = Chris Dolan
-	email = cdolan@attinteractive.com
+  name = Chris Dolan
+  email = cdolan@attinteractive.com
 [apply]
-	whitespace = nowarn
+  whitespace = nowarn
 [color]
   ui = auto
+  diff = never
 [color "branch"]
   current = yellow reverse
   local = yellow
@@ -19,14 +20,14 @@
   changed = green
   untracked = cyan
 [github]
-	user = aelien27
+  user = aelien27
 [alias]
-	st = status
-	ci = commit
-	br = branch
-	co = checkout
-	df = diff
-	lg = log -p
-	rb = rebase
-	spull = !git-svn fetch && git-svn rebase
-	spush = !git-svn dcommit
+  st = status
+  ci = commit
+  br = branch
+  co = checkout
+  df = diff
+  lg = log -p
+  rb = rebase
+  spull = !git-svn fetch && git-svn rebase
+  spush = !git-svn dcommit
