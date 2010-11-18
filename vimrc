@@ -119,6 +119,7 @@
 			autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
 		endif
 	" }
+	autocmd FileType ruby set formatoptions=tcqln
 " }
 
 " Key Mappings {
@@ -197,3 +198,8 @@ endif
 
 " Filetype recognition
 au BufRead,BufNewFile *.jrb set filetype=ruby
+
+" Syntax completion {
+	autocmd FileType ruby call SuperTabSetCompletionType("<C-X><C-U")
+	autocmd FileType ruby set omnifunc=rubycomplete#Complete
+" }
