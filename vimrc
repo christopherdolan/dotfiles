@@ -93,9 +93,14 @@
 	set whichwrap=b,s,h,l,<,>,[,]	" backspace and cursor keys wrap to
 	set scrolljump=5 				" lines to scroll when cursor leaves screen
 	set scrolloff=3 				" minimum lines to keep above and below cursor
-	set foldenable  				" auto fold code
 	set gdefault					" the /g flag on :s substitutions by default
 
+	" Folding {
+		set foldmethod=syntax		"fold based on indent
+		set foldnestmax=10 			"deepest fold is 10 levels
+		set foldenable 				"fold by default
+		set foldlevel=1
+	" }
 " }
 
 " Formatting {
@@ -189,3 +194,6 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
 		  \ | wincmd p | diffthis
 endif
+
+" Filetype recognition
+au BufRead,BufNewFile *.jrb set filetype=ruby

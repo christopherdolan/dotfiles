@@ -85,6 +85,6 @@
 [submodule "vim/bundle/dbext"]
 	path = vim/bundle/dbext
 	url = git://github.com/vim-scripts/dbext.vim.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
+[submodule "vim/bundle/ant_menu"]
+	path = vim/bundle/ant_menu
+	url = git://github.com/vim-scripts/ant_menu.vim.git
