@@ -200,6 +200,6 @@ endif
 au BufRead,BufNewFile *.jrb set filetype=ruby
 
 " Syntax completion {
-	autocmd FileType ruby call SuperTabSetCompletionType("<C-X><C-U")
+	let g:SuperTabDefaultCompletionType = "context"
 	autocmd FileType ruby set omnifunc=rubycomplete#Complete
 " }
