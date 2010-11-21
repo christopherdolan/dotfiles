@@ -85,9 +85,9 @@
 [submodule "vim/bundle/rubycomplete"]
 	path = vim/bundle/rubycomplete
 	url = git://github.com/vim-scripts/rubycomplete.vim.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
 [submodule "vim/bundle/autoalign"]
 	path = vim/bundle/autoalign
 	url = git://github.com/vim-scripts/AutoAlign.git
+[submodule "vim/bundle/fuzzyfinder"]
+	path = vim/bundle/fuzzyfinder
+	url = git://github.com/vim-scripts/FuzzyFinder.git
