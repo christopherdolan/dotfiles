@@ -49,9 +49,6 @@
 [submodule "vim/bundle/taglist"]
 	path = vim/bundle/taglist
 	url = git://github.com/esukram/taglist.vim.git
-[submodule "vim/bundle/vcscommand"]
-	path = vim/bundle/vcscommand
-	url = git://github.com/vim-scripts/vcscommand.vim.git
 [submodule "vim/bundle/git-vim"]
 	path = vim/bundle/git-vim
 	url = git://github.com/motemen/git-vim.git
@@ -91,3 +88,6 @@
 [submodule "vim/bundle/fuzzyfinder"]
 	path = vim/bundle/fuzzyfinder
 	url = git://github.com/vim-scripts/FuzzyFinder.git
+[submodule "vim/bundle/supertab"]
+	path = vim/bundle/supertab
+	url = git://github.com/ervandew/supertab.git
