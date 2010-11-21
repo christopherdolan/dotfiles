@@ -64,9 +64,6 @@
 [submodule "vim/bundle/vim-bufexplorer"]
 	path = vim/bundle/vim-bufexplorer
 	url = git://github.com/edsono/vim-bufexplorer.git
-[submodule "vim/bundle/autoalign"]
-	path = vim/bundle/autoalign
-	url = git://github.com/vim-scripts/AutoAlign.git
 [submodule "vim/bundle/fuzzyfinder"]
 	path = vim/bundle/fuzzyfinder
 	url = git://github.com/vim-bundles/fuzzyfinder.git
