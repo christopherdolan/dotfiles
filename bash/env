@@ -10,6 +10,3 @@ export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
 export SQLPATH=/opt/oracle/instantclient_11_2
 export ORACLE_HOME=/opt/oracle/instantclient_11_2
 export PATH=$PATH:$DYLD_LIBRARY_PATH
-
-# use vimpager as pager
-export PAGER=~/bin/vimpager 
