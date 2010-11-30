@@ -79,9 +79,6 @@
 [submodule "vim/bundle/ant_menu"]
 	path = vim/bundle/ant_menu
 	url = git://github.com/vim-scripts/ant_menu.vim.git
-[submodule "vim/bundle/rubycomplete"]
-	path = vim/bundle/rubycomplete
-	url = git://github.com/vim-scripts/rubycomplete.vim.git
 [submodule "vim/bundle/autoalign"]
 	path = vim/bundle/autoalign
 	url = git://github.com/vim-scripts/AutoAlign.git
