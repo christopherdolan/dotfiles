@@ -186,6 +186,9 @@
 
 	" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
 	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>:set filetype=json<CR>
+
+	" Shortcut to remove highlighting if search values are found
+	nmap <leader>nh :noh<CR>
 " }
 
 " Convenient command to see the difference between the current buffer and the
