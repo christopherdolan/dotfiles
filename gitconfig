@@ -31,3 +31,5 @@
   rb = rebase
   spull = !git-svn fetch && git-svn rebase
   spush = !git-svn dcommit
+[core]
+	excludesfile = ~/.cvsignore
