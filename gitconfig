@@ -4,8 +4,8 @@
 [apply]
   whitespace = nowarn
 [color]
-  ui = always
-  diff = always
+  ui = auto
+  diff = auto
 [color "branch"]
   current = yellow reverse
   local = yellow
