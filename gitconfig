@@ -27,9 +27,10 @@
   br = branch
   co = checkout
   df = diff
-  lg = log -p
+  lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit --date=relative
   rb = rebase
   spull = !git-svn fetch && git-svn rebase
   spush = !git-svn dcommit
+  rdiff = !git fetch origin master --quiet && git log origin/master..master --format=oneline
 [core]
 	excludesfile = ~/.cvsignore
