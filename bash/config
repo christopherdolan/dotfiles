@@ -38,4 +38,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PS1='[$(rvm-prompt s i v g)]$(vcprompt -f '[%n:%b%m%u]'): \w\$ '
+[[ -s "$HOME/bin/dotfiles/ps1_functions" ]] && source "$HOME/bin/dotfiles/ps1_functions"
+
+ps1_set
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
