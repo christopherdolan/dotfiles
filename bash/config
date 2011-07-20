@@ -40,7 +40,16 @@ fi
 
 [[ -s "$HOME/bin/dotfiles/ps1_functions" ]] && source "$HOME/bin/dotfiles/ps1_functions"
 
-ps1_set
+smiley()
+{
+  if (( $? == 0 )) ; then
+    printf "%s" "\033[1;92m:)\033[m"
+  else
+    printf "%s" "\033[1;91m:(\033[m"
+  fi
+}
+
+ps1_set --prompt '$(smiley)'
 
 [[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
 [[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion
