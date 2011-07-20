@@ -43,9 +43,9 @@ fi
 smiley()
 {
   if (( $? == 0 )) ; then
-    printf "%s" "\033[1;92m:)\033[m"
+    printf "%s" "\[\e[1;92m\]:)\[\e[m\]"
   else
-    printf "%s" "\033[1;91m:(\033[m"
+    printf "%s" "\[\e[1;91m\]:(\[\e[m\]"
   fi
 }
 
