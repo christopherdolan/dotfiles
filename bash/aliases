@@ -52,6 +52,3 @@ alias vivim="vim -o $HOME/.vimrc $HOME/.gvimrc"
 
 # open graphical vim to current folder
 alias gv="vim -g . -c 'cd `pwd`'"
-
-# shortcut for ack-grep
-alias ack=ack-grep
