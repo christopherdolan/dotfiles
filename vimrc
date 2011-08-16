@@ -116,7 +116,8 @@
 	" Ruby source file indentation should be, by convention, two spaces per tab
 	" level {
 		if has("autocmd")
-			autocmd FileType ruby setlocal ts=2 sts=2 sw=2 expandtab
+			autocmd FileType ruby   setlocal ts=2 sts=2 sw=2 expandtab
+			autocmd FileType coffee setlocal ts=2 sts=2 sw=2 expandtab
 		endif
 	" }
 	autocmd FileType ruby set formatoptions=tcqln

@@ -38,4 +38,18 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-PS1='[$(rvm-prompt s i v g)]${debian_chroot:+($debian_chroot)}$(vcprompt -f '[%n:%b%m%u]'): \w\$ '
+[[ -s "$HOME/bin/dotfiles/ps1_functions" ]] && source "$HOME/bin/dotfiles/ps1_functions"
+
+smiley()
+{
+  if (( $? == 0 )) ; then
+    printf "%s" "\[\e[1;92m\]:)\[\e[m\]"
+  else
+    printf "%s" "\[\e[1;91m\]:(\[\e[m\]"
+  fi
+}
+
+ps1_set --prompt '$(smiley)'
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
+[[ -r $rvm_path/scripts/completion ]] && . $rvm_path/scripts/completion

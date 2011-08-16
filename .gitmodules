@@ -97,3 +97,15 @@
 [submodule "vim/bundle/textobj-rubyblock"]
 	path = vim/bundle/textobj-rubyblock
 	url = git://github.com/nelstrom/vim-textobj-rubyblock.git
+[submodule "vim/bundle/vim-coffee-script"]
+	path = vim/bundle/vim-coffee-script
+	url = git://github.com/kchmck/vim-coffee-script.git
+[submodule "vim/bundle/eclim"]
+	path = vim/bundle/eclim
+	url = git@github.com:ervandew/eclim.git
+[submodule "vim/bundle/vim-jade"]
+	path = vim/bundle/vim-jade
+	url = git://github.com/statianzo/vim-jade.git
+[submodule "vim/bundle/jslint"]
+	path = vim/bundle/jslint
+	url = git://github.com/hallettj/jslint.vim.git
