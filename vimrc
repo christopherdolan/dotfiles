@@ -169,8 +169,16 @@
 	" so that you can undo CTRL-U after inserting a line break.
 	inoremap <C-U> <C-G>u<C-U>
 
-	" Automatically align Cucumber tables as they're being written.  Requires
-	" Tabular plugin {
+	" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
+	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>:set filetype=json<CR>
+
+	" Shortcut to remove highlighting if search values are found
+	nmap <leader>nh :noh<CR>
+
+" }
+
+" Automatically align Cucumber tables as they're being written.  Requires
+" Tabular plugin {
 	inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 	function! s:align()
@@ -183,13 +191,6 @@
 		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
 	  endif
 	endfunction
-	" }
-
-	" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
-	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>:set filetype=json<CR>
-
-	" Shortcut to remove highlighting if search values are found
-	nmap <leader>nh :noh<CR>
 " }
 
 " Convenient command to see the difference between the current buffer and the
