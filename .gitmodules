@@ -109,3 +109,6 @@
 [submodule "vim/bundle/jslint"]
 	path = vim/bundle/jslint
 	url = git://github.com/hallettj/jslint.vim.git
+[submodule "vim/bundle/tintin.vim"]
+	path = vim/bundle/tintin.vim
+	url = git://github.com/vim-scripts/tintin.vim.git
