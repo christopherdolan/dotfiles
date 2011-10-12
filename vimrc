@@ -175,6 +175,9 @@
 	" Shortcut to remove highlighting if search values are found
 	nmap <leader>nh :noh<CR>
 
+	" Press F12 to re-highlight the source
+	noremap <F12> <Esc>:syntax sync fromstart<CR>
+	inoremap <F12> <C-o>:syntax sync fromstart<CR>
 " }
 
 " Automatically align Cucumber tables as they're being written.  Requires
