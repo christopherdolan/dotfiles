@@ -42,6 +42,9 @@
 		au BufWinEnter * silent! loadview "make vim load view (state) (folds, cursor, etc)
 	" }	
 
+	" where to find Node
+	let $JS_CMD='node'
+
 	" where to find ctags
 	let Tlist_Ctags_Cmd='/usr/bin/ctags'
 
