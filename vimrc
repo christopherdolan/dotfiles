@@ -104,6 +104,10 @@
 		set foldenable 				"fold by default
 		set foldlevel=1
 	" }
+	" NERDTree customizations {
+		" modifies NERDTree to make it use the split explorer model
+		let NERDTreeHijackNetrw=1
+	" }
 " }
 
 " Formatting {
