@@ -2,11 +2,3 @@ export PATH=$PATH:/usr/lib/tpkg/client/bin
 
 export EDITOR=/usr/bin/vim
 export PATH=$HOME/bin:$PATH
-
-# oracle aliases from the macbook
-export PATH=$PATH:/opt/local/bin
-export DYLD_LIBRARY_PATH=/opt/oracle/instantclient_11_2
-export LD_LIBRARY_PATH=$DYLD_LIBRARY_PATH
-export SQLPATH=/opt/oracle/instantclient_11_2
-export ORACLE_HOME=/opt/oracle/instantclient_11_2
-export PATH=$PATH:$DYLD_LIBRARY_PATH
