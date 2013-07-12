@@ -82,3 +82,11 @@ pkg exuberant-ctags
 msg "Setting up RVM" 3
 pkg curl wget libxslt1-dev libxml2-dev libreadline-dev libncurses5-dev libssl-dev
 [[ -n $(which rvm) ]] || curl -L https://get.rvm.io | bash -s stable
+do_cmd cp $dotfiles_path/global.gems $HOME/.rvm/gemsets/global.gems
+rvm install ruby --default
+
+msg "Setting up Node.js"
+cd && git clone https://github.com/joyent/node.git
+cd $HOME/node && ./configure && make && sudo make install
+
+exec bash
