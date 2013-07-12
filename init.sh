@@ -3,7 +3,8 @@
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
 dotfiles_path=$DIR
-target_dir=$HOME
+rc_target_dir=$HOME
+source_dir=$HOME/src
 
 rcfiles_dir=$dotfiles_path/rcfiles
 rcfiles=$( ls $rcfiles_dir )
@@ -44,7 +45,7 @@ read
 msg "Setting up symbolic links to rcfiles" 3
 for rcfile in $rcfiles; do
 	rcfile_path=$rcfiles_dir/$rcfile
-	target_file_path=$target_dir/.$rcfile
+	target_file_path=$rc_target_dir/.$rcfile
 
 	# Skip if the target is already a symbolic link
 	if [[ ! -L $target_file_path ]]; then
@@ -81,12 +82,20 @@ pkg exuberant-ctags
 
 msg "Setting up RVM" 3
 pkg curl wget libxslt1-dev libxml2-dev libreadline-dev libncurses5-dev libssl-dev
-[[ -n $(which rvm) ]] || curl -L https://get.rvm.io | bash -s stable
 do_cmd cp $dotfiles_path/global.gems $HOME/.rvm/gemsets/global.gems
-rvm install ruby --default
+if [[ ! -x $(which rvm) ]]; then
+	curl -L https://get.rvm.io | bash -s stable
+	rvm install ruby --default
+fi
 
-msg "Setting up Node.js"
-cd && git clone https://github.com/joyent/node.git
-cd $HOME/node && ./configure && make && sudo make install
+msg "Setting up Node.js" 3
+if [[ ! -x $(which node) ]]; then
+	mkdir $source_dir 2>&-
+	git clone https://github.com/joyent/node.git $source_dir/node 2>&-
+	prev_dir=$(pwd)
+	cd $source_dir/node
+	./configure && make && sudo make install
+	cd $prev_dir
+fi
 
 exec bash
