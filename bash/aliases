@@ -53,3 +53,6 @@ alias vivim="vim -o $HOME/.vimrc $HOME/.gvimrc"
 
 # open graphical vim to current folder
 alias gv="vim -g . -c 'cd `pwd`'"
+
+# We don't want Byobu reading screen's rcfile, so it's been renamed
+alias screen="/usr/bin/screen -c ~/.screenrc.gnu"

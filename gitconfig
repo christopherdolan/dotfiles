@@ -34,3 +34,5 @@
   rdiff = !git fetch origin master --quiet && git log origin/master..master --format=oneline
 [core]
 	excludesfile = ~/.cvsignore
+[push]
+	default = simple
