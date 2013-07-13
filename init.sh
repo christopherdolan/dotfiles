@@ -99,4 +99,7 @@ if [[ ! -x $(which node) ]]; then
 	sudo npm install -g nodemon mocha express
 fi
 
+pkg byobu
+cp $dotfiles_path/windows.express_dev $HOME/.byobu
+
 exec bash

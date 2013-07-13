@@ -1,0 +1,8 @@
+current_dir=$(pwd)
+echo $current_dir
+
+screen -t shell 0 bash
+screen -t code 1 vim . app.js package.json -p
+screen -t server 2 nodemon app.js
+screen -t www-browser bash -c "sleep 2; www-browser http://localhost:3000"
+screen -t x-www-browser x-www-browser http://localhost:3000
