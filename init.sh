@@ -96,6 +96,7 @@ if [[ ! -x $(which node) ]]; then
 	cd $source_dir/node
 	./configure && make && sudo make install
 	cd $prev_dir
+	sudo npm install -g nodemon mocha express
 fi
 
 exec bash
