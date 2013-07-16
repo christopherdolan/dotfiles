@@ -103,9 +103,6 @@
 [submodule "vim/bundle/tintin.vim"]
 	path = vim/bundle/tintin.vim
 	url = git://github.com/vim-scripts/tintin.vim.git
-[submodule "vim/bundle/vim-bufexplorer"]
-	path = vim/bundle/vim-bufexplorer
-	url = git://github.com/thisivan/vim-bufexplorer.git
 [submodule "vim/bundle/jade.vim"]
 	path = vim/bundle/jade.vim
 	url = https://github.com/vim-scripts/jade.vim.git
