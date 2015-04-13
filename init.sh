@@ -15,23 +15,22 @@ function do_cmd {
 	$cmd
 }
 
-function stars {
-	printf %$1s |tr ' ' '*'
+function msg {
+	printf '*%.0s' $(seq 2 $(echo $1 | wc -c)) + 2
+	echo ''
+	echo -ne '' $1 ''
+	echo ''
+	printf '*%.0s' $(seq 2 $(echo $1 | wc -c)) + 2
+	echo ''
 }
 
-function msg {
-	echo
-	stars $2
-	echo -ne '' $1 ''
-	stars $2
-	echo
-}
 
 function pkg {
+	msg "Installing package: $1"
 	if [[ ! $(which apt-get >&-) ]]; then
-		sudo apt-get install "$@" -y >&-
+		su -c "apt-get install "$@" -y >&-"
 	else
-		echo "Sorry, but you need apt-get to automatically install packages."
+		msg "Sorry, but you need apt-get to automatically install packages."
 	fi
 }
 
@@ -60,14 +59,14 @@ for rcfile in $rcfiles; do
 	fi
 done
 
-msg "Setting up Git" 3
+msg "Setting up Git"
 pkg git
 if [[ ! -e $HOME/.gitconfig ]]; then
 	do_cmd "ln -sf $dotfiles_path/gitconfig $HOME/.gitconfig"
 fi
 
 # Symbolic links to directories need to be made independently
-msg "Setting up Vim" 3
+msg "Setting up Vim"
 pkg vim
 
 if [[ ! -d $HOME/.vim ]]; then
@@ -75,20 +74,21 @@ if [[ ! -d $HOME/.vim ]]; then
 	do_cmd ln -sf $dotfiles_path/vim $HOME/.vim
 fi
 
-msg "Acquiring Vim plugins..." 5
+msg "Acquiring Vim plugins..."
 do_cmd git submodule init
 do_cmd git submodule update
 pkg exuberant-ctags
 
-msg "Setting up RVM" 3
+msg "Setting up RVM"
 pkg curl wget libxslt1-dev libxml2-dev libreadline-dev libncurses5-dev libssl-dev
 do_cmd cp $dotfiles_path/global.gems $HOME/.rvm/gemsets/global.gems
 if [[ ! -x $(which rvm) ]]; then
+	gpg --keyserver hkp://keys.gnupg.net --recv-keys 409B6B1796C275462A1703113804BB82D39DC0E3
 	curl -L https://get.rvm.io | bash -s stable
 	rvm install ruby --default
 fi
 
-msg "Setting up Node.js" 3
+msg "Setting up Node.js"
 if [[ ! -x $(which node) ]]; then
 	mkdir $source_dir 2>&-
 	git clone https://github.com/joyent/node.git $source_dir/node 2>&-
