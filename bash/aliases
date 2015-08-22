@@ -56,3 +56,8 @@ alias gv="vim -g . -c 'cd `pwd`'"
 
 # We don't want Byobu reading screen's rcfile, so it's been renamed
 alias screen="/usr/bin/screen -c ~/.screenrc.gnu"
+
+# docker aliases
+alias dl="sudo docker ps -l -q"
+
+alias d="sudo docker"
