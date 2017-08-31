@@ -103,3 +103,9 @@
 [submodule "vim/bundle/jade.vim"]
 	path = vim/bundle/jade.vim
 	url = https://github.com/vim-scripts/jade.vim.git
+[submodule "vim/bundle/fastfold"]
+	path = vim/bundle/fastfold
+	url = https://github.com/Konfekt/FastFold
+[submodule "vim/bundle/simpylfold"]
+	path = vim/bundle/simpylfold
+	url = https://github.com/tmhedberg/SimpylFold
