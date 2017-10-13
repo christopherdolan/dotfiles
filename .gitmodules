@@ -73,9 +73,6 @@
 [submodule "vim/bundle/autoalign"]
 	path = vim/bundle/autoalign
 	url = git://github.com/vim-scripts/AutoAlign.git
-[submodule "vim/bundle/supertab"]
-	path = vim/bundle/supertab
-	url = git://github.com/ervandew/supertab.git
 [submodule "vim/bundle/vcscommand"]
 	path = vim/bundle/vcscommand
 	url = git://github.com/vim-scripts/vcscommand.vim.git
