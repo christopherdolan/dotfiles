@@ -106,6 +106,8 @@
 	" NERDTree customizations {
 		" modifies NERDTree to make it use the split explorer model
 		let NERDTreeHijackNetrw=1
+		"let g:NERDTreeDirArrowExpandable="+"
+		"let g:NERDTreeDirArrowCollapsible="~"
 	" }
 " }
 
