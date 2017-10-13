@@ -35,29 +35,16 @@ function rmvim() {
 	done
 }
 
-# commonly-used directories
-alias cdp="cd $HOME/proj"
-alias cddf="cd $HOME/bin/dotfiles"
-
 # other command aliases
 alias h="history"
 
 # manage bash config
 alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"
 
-# manage git config
-alias vigit="vim $HOME/.gitconfig"
-
-# manage vim config
-alias vivim="vim -o $HOME/.vimrc $HOME/.gvimrc"
-
-# open graphical vim to current folder
-alias gv="vim -g . -c 'cd `pwd`'"
-
 # We don't want Byobu reading screen's rcfile, so it's been renamed
 alias screen="/usr/bin/screen -c ~/.screenrc.gnu"
 
 # docker aliases
-alias dl="sudo docker ps -l -q"
+alias dl="docker ps -l -q"
 
-alias d="sudo docker"
+alias d="docker"

@@ -29,10 +29,9 @@
 
 	" Setting up the directories {
 		set backup 						" backups are nice ...
-        " Moved to function at bottom of the file
-		set backupdir=$HOME/.vimbackup//  " but not when they clog .
-		set directory=$HOME/.vimswap// 	" Same for swap files
-		set viewdir=$HOME/.vimviews// 	" same but for view files
+		set backupdir=$HOME/.vimbackup/ " but not when they clog .
+		set directory=$HOME/.vimswap/ 	" Same for swap files
+		set viewdir=$HOME/.vimviews/ 	" same but for view files
 
 		"" Creating directories if they don't exist
 		silent execute '!mkdir -p $HOME/.vimbackup'
@@ -107,18 +106,18 @@
 	" NERDTree customizations {
 		" modifies NERDTree to make it use the split explorer model
 		let NERDTreeHijackNetrw=1
+		"let g:NERDTreeDirArrowExpandable="+"
+		"let g:NERDTreeDirArrowCollapsible="~"
 	" }
 " }
 
 " Formatting {
 	set nowrap                     	" wrap long lines
 	set autoindent                 	" indent at the same level of the previous line
-	set shiftwidth=4               	" use indents of 4 spaces
-	set noexpandtab 	       		" tabs are tabs, not spaces
-	set tabstop=4 					" an indentation every four columns
-	"set matchpairs+=<:>            	" match, to be used with %
+	set shiftwidth=2               	" use indents of 4 spaces
+	set expandtab 	       		    " tabs are expanded to spaces
+	set tabstop=2 					" an indentation every four columns
 	set pastetoggle=<F12>          	" pastetoggle (sane indentation on pastes)
-	"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
 
 	" Ruby source file indentation should be, by convention, two spaces per tab
 	" level {
@@ -126,9 +125,11 @@
 			autocmd FileType ruby       setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType coffee     setlocal ts=2 sts=2 sw=2 expandtab
+			autocmd FileType cucumber   setlocal ts=4 sts=4 sw=4 expandtab
+
+			autocmd FileType ruby set formatoptions=tcqln
 		endif
 	" }
-	autocmd FileType ruby set formatoptions=tcqln
 " }
 
 " Key Mappings {
@@ -153,13 +154,6 @@
 	map ,v :tabe ~/.vimrc<CR><C-W>_
 	map <silent> ,V :source ~/.vimrc<CR>:filetype detect<CR>:exe ":echo 'vimrc reloaded'"<CR>
 
-	" Stupid shift key fixes
-	cmap W w
-	cmap WQ wq
-	cmap wQ wq
-	cmap Q q
-	cmap Tabe tabe
-
 	" Yank from the cursor to the end of the line, to be consistent with C and D.
 	nnoremap Y y$
 
@@ -177,8 +171,9 @@
 	" so that you can undo CTRL-U after inserting a line break.
 	inoremap <C-U> <C-G>u<C-U>
 
-	" Allows the pretty printing of JSON.  Requires CPAN package JSON::XS
-	map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>:set filetype=json<CR>
+	" Allows the pretty printing of JSON. Uses spaces by default. Add --t for
+  " tabs.
+	map <leader>jt  <Esc>:%!jq .<CR>:set filetype=json<CR>
 
 	" Shortcut to remove highlighting if search values are found
 	nmap <leader>nh :noh<CR>
