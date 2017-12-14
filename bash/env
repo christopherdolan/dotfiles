@@ -1,3 +1,5 @@
 export EDITOR=/usr/bin/vim
 export PATH=$HOME/bin:$PATH
 export PATH=$HOME/.rvm/bin:$PATH # Add RVM to PATH for scripting
+
+set -o vi
