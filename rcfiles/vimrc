@@ -1,8 +1,6 @@
 " Setup Bundle Support {
 " The next two lines ensure that the ~/.vim/bundle/ system works
-	filetype off
-	runtime! autoload/pathogen.vim
-	silent! call pathogen#runtime_append_all_bundles()
+	execute pathogen#infect()
 " }
 
 " Basics {
