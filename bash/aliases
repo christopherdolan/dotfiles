@@ -31,7 +31,7 @@ alias pbpaste='xsel --clipboard --output'
 function rmvim() {
 	for pat in {'*~','*.swp','*.swo'}
 	do
-		find . -name "${pat}" -exec rm {} \;
+		find ~/.vimswap -name "${pat}" -exec rm {} \;
 	done
 }
 
@@ -48,3 +48,6 @@ alias screen="/usr/bin/screen -c ~/.screenrc.gnu"
 alias dl="docker ps -l -q"
 
 alias d="docker"
+
+#use neovim
+alias vim=nvim
