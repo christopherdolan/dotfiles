@@ -3,6 +3,39 @@
 	execute pathogen#infect()
 " }
 
+" NVim stuff {
+	if has('nvim')
+	  tnoremap <Esc> <C-\><C-n>
+	  tnoremap <M-[> <Esc>
+	  tnoremap <C-v><Esc> <Esc>
+
+	  " Movement from all modes with Alt-[motion]
+	  " Terminal mode:
+	  tnoremap <M-h> <c-\><c-n><c-w>h
+	  tnoremap <M-j> <c-\><c-n><c-w>j
+	  tnoremap <M-k> <c-\><c-n><c-w>k
+	  tnoremap <M-l> <c-\><c-n><c-w>l
+	  " Insert mode:
+	  inoremap <M-h> <Esc><c-w>h
+	  inoremap <M-j> <Esc><c-w>j
+	  inoremap <M-k> <Esc><c-w>k
+	  inoremap <M-l> <Esc><c-w>l
+	  " Visual mode:
+	  vnoremap <M-h> <Esc><c-w>h
+	  vnoremap <M-j> <Esc><c-w>j
+	  vnoremap <M-k> <Esc><c-w>k
+	  vnoremap <M-l> <Esc><c-w>l
+	  " Normal mode:
+	  nnoremap <M-h> <c-w>h
+	  nnoremap <M-j> <c-w>j
+	  nnoremap <M-k> <c-w>k
+	  nnoremap <M-l> <c-w>l
+
+	  " Partial workaround to allow mouse-based selection copying
+	  vnoremap <LeftRelease> "*ygv
+	endif
+" }
+
 " Basics {
 	set nocompatible 		" must be first line
 	set background=dark     " Assume a dark background
@@ -132,12 +165,6 @@
 
 " Key Mappings {
 
-	" Open BufExplorer in a new tab
-	map ,b :tabnew<CR>:BufExplorer<CR>
-
-	" Open the FuzzyFinderFile pane
-	map <leader>f :FufFile<CR>
-
 	" Easier moving in tabs and windows
 	map <C-J> <C-W>j<C-W>_
 	map <C-K> <C-W>k<C-W>_
@@ -170,7 +197,7 @@
 	inoremap <C-U> <C-G>u<C-U>
 
 	" Allows the pretty printing of JSON. Uses spaces by default. Add --t for
-  " tabs.
+	" tabs.
 	map <leader>jt  <Esc>:%!jq .<CR>:set filetype=json<CR>
 
 	" Shortcut to remove highlighting if search values are found
@@ -205,10 +232,43 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-" Filetype recognition
-au BufRead,BufNewFile *.jrb set filetype=ruby
-
 " Syntax completion {
 	let g:SuperTabDefaultCompletionType = "context"
 	autocmd FileType ruby set omnifunc=rubycomplete#Complete
+" }
+
+" Run Cucumber tests {
+	" Set the leader
+	let mapleader = ","
+
+	" Run tests
+	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>t :call RunTestCommand(line('.'))<CR>
+	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>T :call RunTestCommand()<CR>
+
+	function! GetTestCommand()
+		if expand('%:r') =~ '_spec$'
+			return 'bundle exec rspec'
+		elseif expand('%') =~ '\.feature$'
+			return 'bundle exec cucumber'
+		else
+			return '0'
+		endif
+	endfunction
+
+	function! RunTestCommand(...)
+		let cmd = GetTestCommand()
+
+		" if there's a command update the test command register (t)
+		if cmd != '0'
+			let @t = ':!' .  cmd . ' ' .  expand('%') .  (a:0 == 1 ?  ':'.line('.') : '')
+		endif
+
+		" if the test command register isn't empty, excecute it.
+		if strlen(@t) > 0
+			execute @t
+		elseif
+			echoerr "No test command to run"
+		end
+
+	endfunction
 " }

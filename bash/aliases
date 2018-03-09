@@ -43,11 +43,11 @@ alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"
 
 # We don't want Byobu reading screen's rcfile, so it's been renamed
 alias screen="/usr/bin/screen -c ~/.screenrc.gnu"
+alias ss="screen -S"
+alias sls="screen -ls"
+alias sr="screen -r"
+alias sx="screen -x"
 
 # docker aliases
 alias dl="docker ps -l -q"
-
 alias d="docker"
-
-#use neovim
-alias vim=nvim
