@@ -121,3 +121,12 @@
 [submodule "vim/bundle/ember_tools"]
 	path = vim/bundle/ember_tools
 	url = https://github.com/AndrewRadev/ember_tools.vim
+[submodule "vim/bundle/simpylfold"]
+	path = vim/bundle/simpylfold
+	url = https://github.com/tmhedberg/SimpylFold
+[submodule "vim/bundle/vim-highlightedyank"]
+	path = vim/bundle/vim-highlightedyank
+	url = https://github.com/machakann/vim-highlightedyank.git
+[submodule "vim/bundle/vim-ruby"]
+	path = vim/bundle/vim-ruby
+	url = https://github.com/vim-ruby/vim-ruby.git

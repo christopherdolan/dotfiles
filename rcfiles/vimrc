@@ -154,15 +154,12 @@
 	" level {
 		if has("autocmd")
 			autocmd FileType ruby       setlocal ts=2 sts=2 sw=2 expandtab
+			autocmd FileType ruby       set formatoptions=tcqln
 			autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType coffee     setlocal ts=2 sts=2 sw=2 expandtab
-<<<<<<< HEAD
 			autocmd FileType cucumber   setlocal ts=4 sts=4 sw=4 expandtab
-
 			autocmd FileType ruby set formatoptions=tcqln
-=======
 			autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 expandtab
->>>>>>> updates for osx and neovim
 		endif
 	" }
 " }
@@ -281,4 +278,39 @@ endif
 	map <Leader>s :call RunNearestSpec()<CR>
 	map <Leader>l :call RunLastSpec()<CR>
 	map <Leader>a :call RunAllSpecs()<CR>
+
+" Run Cucumber tests {
+	" Set the leader
+	let mapleader = ","
+
+	" Run tests
+	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>t :call RunTestCommand(line('.'))<CR>
+	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>T :call RunTestCommand()<CR>
+
+	function! GetTestCommand()
+		if expand('%:r') =~ '_spec$'
+			return 'bundle exec rspec'
+		elseif expand('%') =~ '\.feature$'
+			return 'bundle exec cucumber'
+		else
+			return '0'
+		endif
+	endfunction
+
+	function! RunTestCommand(...)
+		let cmd = GetTestCommand()
+
+		" if there's a command update the test command register (t)
+		if cmd != '0'
+			let @t = ':!' .  cmd . ' ' .  expand('%') .  (a:0 == 1 ?  ':'.line('.') : '')
+		endif
+
+		" if the test command register isn't empty, excecute it.
+		if strlen(@t) > 0
+			execute @t
+		elseif
+			echoerr "No test command to run"
+		end
+
+	endfunction
 " }
