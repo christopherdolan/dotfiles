@@ -109,3 +109,15 @@
 [submodule "vim/bundle/vim-ruby"]
 	path = vim/bundle/vim-ruby
 	url = https://github.com/vim-ruby/vim-ruby.git
+[submodule "vim/bundle/vim-ember-hbs"]
+	path = vim/bundle/vim-ember-hbs
+	url = https://github.com/joukevandermaas/vim-ember-hbs
+[submodule "vim/bundle/vim-rspec"]
+	path = vim/bundle/vim-rspec
+	url = https://github.com/thoughtbot/vim-rspec.git
+[submodule "vim/bundle/nerdtree-git-plugin"]
+	path = vim/bundle/nerdtree-git-plugin
+	url = https://github.com/Xuyuanp/nerdtree-git-plugin.git
+[submodule "vim/bundle/ember_tools"]
+	path = vim/bundle/ember_tools
+	url = https://github.com/AndrewRadev/ember_tools.vim
