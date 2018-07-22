@@ -40,10 +40,9 @@ esac
 
 # easily clean all vim files from a directory structure
 function rmvim() {
-	for pat in {'*~','*.swp','*.swo'}
-	do
-		find ~/.vimswap -name "${pat}" -exec rm {} \;
-	done
+    for pat in {'*~','*.swp','*.swo'}; do
+        find ~/.vimswap -name "${pat}" -exec rm {} \;
+    done
 }
 
 # other command aliases
