@@ -22,10 +22,21 @@ alias gco='git checkout'
 alias gd='git diff'
 alias gdc='git diff --cached'
 alias gl='git log --pretty=oneline'
-
-# the linux equivalent of mac's "pbpaste" (useful for ypaste script)
-alias pbcopy='xsel --clipboard --input'
-alias pbpaste='xsel --clipboard --output'
+ 
+unameOut="$(uname -s)"
+case "${unameOut}" in
+    Linux*)
+        alias pbcopy='xsel --clipboard --input'
+        alias pbpaste='xsel --clipboard --output'
+        ;;
+    Darwin*)
+        ;;
+    CYGWIN*)
+        ;;
+    MINGW*)
+        ;;
+    *)
+esac
 
 # easily clean all vim files from a directory structure
 function rmvim() {
@@ -37,6 +48,8 @@ function rmvim() {
 
 # other command aliases
 alias h="history"
+
+alias vim="/usr/local/bin/nvim"
 
 # manage bash config
 alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"

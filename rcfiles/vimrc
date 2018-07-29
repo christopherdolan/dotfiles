@@ -76,7 +76,7 @@
 	let $JS_CMD='node'
 
 	" where to find ctags
-	let Tlist_Ctags_Cmd='/usr/bin/ctags'
+	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
@@ -156,9 +156,13 @@
 			autocmd FileType ruby       setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType coffee     setlocal ts=2 sts=2 sw=2 expandtab
+<<<<<<< HEAD
 			autocmd FileType cucumber   setlocal ts=4 sts=4 sw=4 expandtab
 
 			autocmd FileType ruby set formatoptions=tcqln
+=======
+			autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 expandtab
+>>>>>>> updates for osx and neovim
 		endif
 	" }
 " }
@@ -271,4 +275,10 @@ endif
 		end
 
 	endfunction
+" }
+" RSpec {
+	map <Leader>t :call RunCurrentSpecFile()<CR>
+	map <Leader>s :call RunNearestSpec()<CR>
+	map <Leader>l :call RunLastSpec()<CR>
+	map <Leader>a :call RunAllSpecs()<CR>
 " }

@@ -13,3 +13,5 @@ fi
 
 # VI mode on bash; more trouble than it's worth
 # set -o vi
+
+export PATH=/usr/local/bin:$HOME/bin:/usr/local/opt/elasticsearch@5.6/bin:$PATH
