@@ -48,11 +48,6 @@ function rmvim() {
 # other command aliases
 alias h="history"
 
-alias vim="/usr/local/bin/nvim"
-
-# manage bash config
-alias vibash="vim -o $HOME/bin/dotfiles/bash/*[!~]"
-
 # We don't want Byobu reading screen's rcfile, so it's been renamed
 alias screen="/usr/bin/screen -c ~/.screenrc.gnu"
 alias ss="screen -S"

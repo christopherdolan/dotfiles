@@ -1,20 +1,5 @@
-if [[ -x $(which go) ]]; then
-    export GOPATH=$HOME/.go
-    export PATH=$GOPATH/bin:$PATH
-fi
-
-if [[ -x $(which kubectl) ]]; then
-	source <(kubectl completion bash)
-fi
-
-if [[ -x $(which helm) ]]; then
-	source <(helm completion bash)
-fi
-
 # VI mode on bash; more trouble than it's worth
 # set -o vi
-
-export PATH=/usr/local/bin:$HOME/bin:/usr/local/opt/elasticsearch@5.6/bin:$PATH
 
 if [[ -x $(which go) ]]; then
     export GOPATH=$HOME/.go
@@ -29,15 +14,16 @@ if [[ -x $(which helm) ]]; then
 	source <(helm completion bash)
 fi
 
-# VI mode on bash; more trouble than it's worth
-# set -o vi
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
+if [[ -x $(which pyenv) ]]; then
+  eval "$(pyenv init -)"
+  eval "$(pyenv virtualenv-init -)"
 fi
 
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
+if [[ -x $(which brew) ]]; then
+  if [ -f $(brew --prefix)/etc/bash_completion ]; then
+    . $(brew --prefix)/etc/bash_completion
+  fi
 
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+  export CFLAGS="-I$(brew --prefix openssl)/include"
+  export LDFLAGS="-L$(brew --prefix openssl)/lib"
+fi

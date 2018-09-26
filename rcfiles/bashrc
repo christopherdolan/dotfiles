@@ -1,19 +1,8 @@
 . $HOME/bin/dotfiles/bash/env
 . $HOME/bin/dotfiles/bash/config
 . $HOME/bin/dotfiles/bash/aliases
-. $HOME/bin/dotfiles/bash/colors
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
 
 export PATH="/home/cdolan/.pyenv/bin:$PATH"
-
-if [ -f $(brew --prefix)/etc/bash_completion ]; then
-	. $(brew --prefix)/etc/bash_completion
-fi
-
-export CFLAGS="-I$(brew --prefix openssl)/include"
-export LDFLAGS="-L$(brew --prefix openssl)/lib"
-
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
