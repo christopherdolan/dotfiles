@@ -1,25 +1,25 @@
 # VI mode on bash; more trouble than it's worth
 # set -o vi
 
-if [[ -x $(which go) ]]; then
+if [[ -x $(which go 2>/dev/null ) ]]; then
     export GOPATH=$HOME/.go
     export PATH=$GOPATH/bin:$PATH
 fi
 
-if [[ -x $(which kubectl) ]]; then
+if [[ -x $(which kubectl 2>/dev/null) ]]; then
 	source <(kubectl completion bash)
 fi
 
-if [[ -x $(which helm) ]]; then
+if [[ -x $(which helm 2>/dev/null) ]]; then
 	source <(helm completion bash)
 fi
 
-if [[ -x $(which pyenv) ]]; then
+if [[ -x $(which pyenv 2>/dev/null) ]]; then
   eval "$(pyenv init -)"
   eval "$(pyenv virtualenv-init -)"
 fi
 
-if [[ -x $(which brew) ]]; then
+if [[ -x $(which brew 2>/dev/null) ]]; then
   if [ -f $(brew --prefix)/etc/bash_completion ]; then
     . $(brew --prefix)/etc/bash_completion
   fi
