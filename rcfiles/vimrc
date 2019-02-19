@@ -1,38 +1,37 @@
 " Setup Bundle Support {
-" The next two lines ensure that the ~/.vim/bundle/ system works
 	execute pathogen#infect()
 " }
 
 " NVim stuff {
 	if has('nvim')
-	  tnoremap <Esc> <C-\><C-n>
-	  tnoremap <M-[> <Esc>
-	  tnoremap <C-v><Esc> <Esc>
+		tnoremap <Esc> <C-\><C-n>
+		tnoremap <M-[> <Esc>
+		tnoremap <C-v><Esc> <Esc>
 
-	  " Movement from all modes with Alt-[motion]
-	  " Terminal mode:
-	  tnoremap <M-h> <c-\><c-n><c-w>h
-	  tnoremap <M-j> <c-\><c-n><c-w>j
-	  tnoremap <M-k> <c-\><c-n><c-w>k
-	  tnoremap <M-l> <c-\><c-n><c-w>l
+		" Movement from all modes with Alt-[motion]
+		" Terminal mode:
+		tnoremap <M-h> <c-\><c-n><c-w>h
+		tnoremap <M-j> <c-\><c-n><c-w>j
+		tnoremap <M-k> <c-\><c-n><c-w>k
+		tnoremap <M-l> <c-\><c-n><c-w>l
 	  " Insert mode:
-	  inoremap <M-h> <Esc><c-w>h
-	  inoremap <M-j> <Esc><c-w>j
-	  inoremap <M-k> <Esc><c-w>k
-	  inoremap <M-l> <Esc><c-w>l
-	  " Visual mode:
-	  vnoremap <M-h> <Esc><c-w>h
-	  vnoremap <M-j> <Esc><c-w>j
-	  vnoremap <M-k> <Esc><c-w>k
-	  vnoremap <M-l> <Esc><c-w>l
-	  " Normal mode:
-	  nnoremap <M-h> <c-w>h
-	  nnoremap <M-j> <c-w>j
-	  nnoremap <M-k> <c-w>k
-	  nnoremap <M-l> <c-w>l
+		inoremap <M-h> <Esc><c-w>h
+		inoremap <M-j> <Esc><c-w>j
+		inoremap <M-k> <Esc><c-w>k
+		inoremap <M-l> <Esc><c-w>l
+		" Visual mode:
+		vnoremap <M-h> <Esc><c-w>h
+		vnoremap <M-j> <Esc><c-w>j
+		vnoremap <M-k> <Esc><c-w>k
+		vnoremap <M-l> <Esc><c-w>l
+		" Normal mode:
+		nnoremap <M-h> <c-w>h
+		nnoremap <M-j> <c-w>j
+		nnoremap <M-k> <c-w>k
+		nnoremap <M-l> <c-w>l
 
-	  " Partial workaround to allow mouse-based selection copying
-	  vnoremap <LeftRelease> "*ygv
+		" Partial workaround to allow mouse-based selection copying
+		vnoremap <LeftRelease> "*ygv
 	endif
 " }
 
@@ -47,7 +46,7 @@
 
 	" In many terminal emulators the mouse works just fine, thus enable it.
 	if has('mouse')
-	  set mouse=a
+		set mouse=a
 	endif
 
 	scriptencoding utf-8
@@ -56,7 +55,7 @@
 	set viewoptions=folds,options,cursor,unix,slash " better unix / windows compatibility
 	set virtualedit=onemore 	   	" allow for cursor beyond last character
 	set history=1000  				" Store a ton of history (default is 20)
-	" set spell 		 	     	" spell checking on
+    " set spell 		 	     	" spell checking on
 
 	" Setting up the directories {
 		set backup 						" backups are nice ...
@@ -76,7 +75,7 @@
 	let $JS_CMD='node'
 
 	" where to find ctags
-	let Tlist_Ctags_Cmd='/usr/local/bin/ctags'
+	let Tlist_Ctags_Cmd='ctags'
 
 	" When editing a file, always jump to the last known cursor position.
 	" Don't do it when the position is invalid or when inside an event handler
@@ -84,13 +83,20 @@
 	" Also don't do it when the mark is in the first line, that is the default
 	" position when opening a file.
 	autocmd BufReadPost *
-	  \ if line("'\"") > 1 && line("'\"") <= line("$") |
-	  \   exe "normal! g`\"" |
-	  \ endif
+		\ if line("'\"") > 1 && line("'\"") <= line("$") |
+		\   exe "normal! g`\"" |
+		\ endif
 " }
 
 " Vim UI {
-	colorscheme blackboard
+    " set Vim-specific sequences for RGB colors
+    set termguicolors
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+	" colorscheme blackboard
+	colorscheme solarized8
+
 	set tabpagemax=15 				" only show 15 tabs
 	set showmode                   	" display the current mode
 
@@ -108,7 +114,7 @@
 	if has('statusline')
 		set laststatus=1           	" show statusline only if there are > 1 windows
 		" Use the commented line if fugitive isn't installed
-		"set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P " a statusline, also on steroids
+		" set statusline=%<%f\ %=\:\b%n%y%m%r%w\ %l,%c%V\ %P " a statusline, also on steroids
 		set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 	endif
 
@@ -143,12 +149,14 @@
 " }
 
 " Formatting {
-	set nowrap                     	" wrap long lines
-	set autoindent                 	" indent at the same level of the previous line
-	set shiftwidth=2               	" use indents of 4 spaces
-	set expandtab 	       		    " tabs are expanded to spaces
-	set tabstop=2 					" an indentation every four columns
-	set pastetoggle=<F12>          	" pastetoggle (sane indentation on pastes)
+	set nowrap		    	" wrap long lines
+	set autoindent          " indent at the same level of the previous line
+
+	set shiftwidth=4        " use indents of 4 spaces
+	set expandtab           " tabs are expanded to spaces
+	set tabstop=4           " an indentation every four columns
+
+	set pastetoggle=<F12>   " pastetoggle (sane indentation on pastes)
 
 	" Ruby source file indentation should be, by convention, two spaces per tab
 	" level {
@@ -158,7 +166,6 @@
 			autocmd FileType javascript setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType coffee     setlocal ts=2 sts=2 sw=2 expandtab
 			autocmd FileType cucumber   setlocal ts=4 sts=4 sw=4 expandtab
-			autocmd FileType ruby set formatoptions=tcqln
 			autocmd FileType handlebars setlocal ts=2 sts=2 sw=2 expandtab
 		endif
 	" }
@@ -214,14 +221,14 @@
 	inoremap <silent> <Bar>   <Bar><Esc>:call <SID>align()<CR>a
 
 	function! s:align()
-	  let p = '^\s*|\s.*\s|\s*$'
-	  if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
-		let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
-		let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
-		Tabularize/|/l1
-		normal! 0
-		call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
-	  endif
+		let p = '^\s*|\s.*\s|\s*$'
+		if exists(':Tabularize') && getline('.') =~# '^\s*|' && (getline(line('.')-1) =~# p || getline(line('.')+1) =~# p)
+			let column = strlen(substitute(getline('.')[0:col('.')],'[^|]','','g'))
+			let position = strlen(matchstr(getline('.')[0:col('.')],'.*|\s*\zs.*'))
+			Tabularize/|/l1
+			normal! 0
+			call search(repeat('[^|]*|',column).'\s\{-\}'.repeat('.',position),'ce',line('.'))
+		endif
 	endfunction
 " }
 
@@ -229,8 +236,8 @@
 " file it was loaded from, thus the changes you made.
 " Only define it when not defined already.
 if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+	command DiffOrig vert new | set bt=nofile | r # | 0d_ | diffthis
+			\ | wincmd p | diffthis
 endif
 
 " Syntax completion {
@@ -239,9 +246,6 @@ endif
 " }
 
 " Run Cucumber tests {
-	" Set the leader
-	let mapleader = ","
-
 	" Run tests
 	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>t :call RunTestCommand(line('.'))<CR>
 	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>T :call RunTestCommand()<CR>
@@ -278,39 +282,13 @@ endif
 	map <Leader>s :call RunNearestSpec()<CR>
 	map <Leader>l :call RunLastSpec()<CR>
 	map <Leader>a :call RunAllSpecs()<CR>
+" }
 
-" Run Cucumber tests {
-	" Set the leader
-	let mapleader = ","
-
-	" Run tests
-	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>t :call RunTestCommand(line('.'))<CR>
-	autocmd FileType ruby,eruby,yaml,haml,scss,cucumber nmap <leader>T :call RunTestCommand()<CR>
-
-	function! GetTestCommand()
-		if expand('%:r') =~ '_spec$'
-			return 'bundle exec rspec'
-		elseif expand('%') =~ '\.feature$'
-			return 'bundle exec cucumber'
-		else
-			return '0'
-		endif
-	endfunction
-
-	function! RunTestCommand(...)
-		let cmd = GetTestCommand()
-
-		" if there's a command update the test command register (t)
-		if cmd != '0'
-			let @t = ':!' .  cmd . ' ' .  expand('%') .  (a:0 == 1 ?  ':'.line('.') : '')
-		endif
-
-		" if the test command register isn't empty, excecute it.
-		if strlen(@t) > 0
-			execute @t
-		elseif
-			echoerr "No test command to run"
-		end
-
-	endfunction
+" Search {
+	nnoremap / /\v
+	vnoremap / /\v
+	cnoremap %s/ %smagic/
+	cnoremap \>s/ \>smagic/
+	nnoremap :g/ :g/\v
+	nnoremap :g// :g//
 " }
